@@ -22,7 +22,7 @@ def generate_token(url:str, y:int) -> str:
     while True:
         random_token:str = ''.join(random.choice(string.ascii_letters) for x in range(y))
         for existing_url in Urls.query.all():
-            if random_token == existing_url:
+            if random_token == existing_url.shortened:
                 duplicate = True
                 break # break for loop
         if duplicate:
